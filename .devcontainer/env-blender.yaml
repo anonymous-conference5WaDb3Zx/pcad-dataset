@@ -1,0 +1,42 @@
+# Using an environment name other than "base" is not recommended!
+# Read https://github.com/mamba-org/micromamba-docker#multiple-environments
+# if you must use a different environment name.
+name: blender
+channels:
+  # - kitsune.one
+  - pkgs/main
+  - nvidia
+  - pytorch
+  - conda-forge
+dependencies:
+# base
+  # - python>=3.10.* # for bpy
+  - python>=3.10* # for bpy
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=11.7
+# data version control
+  - dvc
+  - dvc-ssh
+# data processing
+  - numpy
+  - seaborn
+  - scipy
+  - pandas
+# visualization
+  - Pillow
+  - opencv
+  - imutils
+# misc
+  - pyyaml
+  - psutil
+  - tqdm
+  - protobuf
+  - pyyaml
+  - funcy=1.17
+  - gxx_linux-64>=11.1.0 # scipy needs glibcxx==3.4.29 --> also see symlink in Dockerfile
+  - libffi=3.4.2 # known issue: linking error with 3.4.4
+  - zc.lockfile
+  - gitdb
+  - six

@@ -1,0 +1,59 @@
+# Using an environment name other than "base" is not recommended!
+# Read https://github.com/mamba-org/micromamba-docker#multiple-environments
+# if you must use a different environment name.
+name: base
+channels:
+  # - kitsune.one
+  - nvidia
+  - pytorch
+  - conda-forge
+  - pkgs/main
+dependencies:
+# base
+  - python>=3.10.* # for bpy
+  - pytorch=2.0.1=py3.10_cuda11.7_cudnn8.5.0_0
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=11.7
+  - cuda-toolkit=11.7
+  - pytorch-lightning>=2.*
+  - einops
+# data version control
+  - dvc
+  - dvc-ssh
+# data processing
+  - numpy
+  - seaborn
+  - scipy
+  - pandas
+  - scikit-learn
+  - albumentations
+# visualization
+  - Pillow
+  - opencv<=4.2.0
+  - imutils
+  - matplotlib
+  - scikit-image
+# misc
+  - epc
+  - ray-tune
+  - debugpy
+  - pyyaml
+  - psutil
+  - tqdm
+  - protobuf
+  - pyyaml
+  - funcy=1.17
+  - gxx_linux-64>=11.1.0 # scipy needs glibcxx==3.4.29 --> also see symlink in Dockerfile
+  - gcc=12.1.0
+  - libffi=3.4.2 # known issue: linking error with 3.4.4
+  - imgaug
+  - pip
+  - pip:
+      # - future-fstrings
+      - pyvirtualdisplay
+      - mathutils
+      - bpy==3.5.0
+      - pytorch_ssim
+      - blenderproc
+      - future-strings

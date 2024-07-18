@@ -1,0 +1,5 @@
+# /eyek_addon
+# /blender-3.5.1-linux-x64.tar.xz
+# handled in other .gitignore
+/blender-3.5.1-linux-x64.tar.xz
+/eyek_addon.zip
