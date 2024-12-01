@@ -1,0 +1,4 @@
+[core]
+    remote = pcad-dataset-dvc-storage
+['remote "pcad-dataset-dvc-storage"']
+    url = ../pcad-dataset-dvc-storage

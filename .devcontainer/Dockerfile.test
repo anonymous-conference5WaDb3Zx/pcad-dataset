@@ -1,0 +1,23 @@
+FROM mambaorg/micromamba:1.4.4-focal-cuda-11.7.1
+# ARG MAMBA_DOCKERFILE_ACTIVATE=1
+COPY --from=tianon/gosu /usr/local/bin/gosu /usr/local/bin/gosu
+# Download Blender from https://download.blender.org/release/Blender3.5/blender-3.5.1-linux-x64.tar.xz
+# Then move the tar.xz file to the same directory that the Dockerfile is in (.devcontainer)
+# There may be a more elegant way to do this in future...
+# COPY blender-3.5.1-linux-x64.tar.xz /tmp/
+# Download the eyek addon from https://github.com/p4ymak/eyek/releases/download/v0.2.7/eyek_addon.zip
+# Unzip this and move the eyek_addon folder to the same directory as the Dockerfile
+# COPY --chown=$MAMBA_USER:$MAMBA_USER eyek_addon /usr/local/blender-3.5.1-linux-x64/3.5/scripts/addons/eyek_addon
+USER root
+ENV USERNAME=mambauser
+# RUN pip install future-fstrings
+USER $MAMBA_USER
+COPY --chown=$MAMBA_USER:$MAMBA_USER env-test0.yaml /tmp/env0.yaml
+RUN --mount=type=cache,mode=0777,uid=1000,gid=1000,target=/opt/conda/pkgs micromamba create -y -f /tmp/env0.yaml
+
+COPY --chown=$MAMBA_USER:$MAMBA_USER env-test1.yaml /tmp/env1.yaml
+RUN --mount=type=cache,mode=0777,uid=1000,gid=1000,target=/opt/conda/pkgs micromamba create -y -f /tmp/env1.yaml
+
+USER $MAMBA_USER
+# TODO: Remove gcc and future-strings after installation process has finished
+WORKDIR /home/mambauser/dev-container

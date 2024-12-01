@@ -1,0 +1,3319 @@
+schema: '2.0'
+stages:
+  target-pose@2700642-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=2700642-training/no-defect --product-name=2700642"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/2700642-training/no-defect
+      hash: md5
+      md5: 7b8a04f6cf29ea248f86254a7ae11feb.dir
+      size: 7503028391
+      nfiles: 3608
+    - path: ./data//products/2700642
+      hash: md5
+      md5: 00bc13d0d50080944961dbf901043bc4.dir
+      size: 27274242
+      nfiles: 14
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/2700642-training/no-defect
+      hash: md5
+      md5: 179cec38dbc1808e5399beefb99f5b3c.dir
+      size: 4773083
+      nfiles: 4
+  target-pose@2700642-testing-defect-bottom-right:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=2700642-testing/defect-bottom-right --product-name=2700642"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/2700642-testing/defect-bottom-right
+      hash: md5
+      md5: 0955ff563e0151bb619474a35d0b7433.dir
+      size: 7523106419
+      nfiles: 3608
+    - path: ./data//products/2700642
+      hash: md5
+      md5: 00bc13d0d50080944961dbf901043bc4.dir
+      size: 27274242
+      nfiles: 14
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/2700642-testing/defect-bottom-right
+      hash: md5
+      md5: 025497d51caf227347c1311d66a440a2.dir
+      size: 4773085
+      nfiles: 4
+  render-synthetic@2700642-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=2700642-training/no-defect --product_name=2700642 --results_root=./results/
+      --type=no-defect"
+    deps:
+    - path: ./data//products/2700642/compiled_scene_0.blend
+      hash: md5
+      md5: b093b847157b6d6007edea61673cd06c
+      size: 6552636
+    - path: ./results//scene/2700642-training/no-defect/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 081ca69d19b4475c202829f3a22ed09d
+      size: 89736
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/2700642-training/no-defect
+      hash: md5
+      md5: 2232582397c8e4e6bb25df727abf449b.dir
+      size: 30095999
+      nfiles: 288
+  target-pose@bus_coppler_green-testing-defect-rail-l:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=bus_coppler_green-testing/defect-rail-l --product-name=bus_coppler_green"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/bus_coppler_green-testing/defect-rail-l
+      hash: md5
+      md5: 9b47d0de0068fe44a9554ffbb83fc64a.dir
+      size: 7154298929
+      nfiles: 3612
+    - path: ./data//products/bus_coppler_green
+      hash: md5
+      md5: 6708011737db6d07a72518a2f18ace8f.dir
+      size: 25674352
+      nfiles: 21
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/bus_coppler_green-testing/defect-rail-l
+      hash: md5
+      md5: 16306955996213c6ba883043f3cc5fc3.dir
+      size: 5799057
+      nfiles: 4
+  target-pose@switch_8_port-testing-defect-exchange-rj-45:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=switch_8_port-testing/defect-exchange-rj-45 --product-name=switch_8_port"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/switch_8_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: 1cd4b8feaea6ee4806c13d1d2517b246.dir
+      size: 7313056825
+      nfiles: 3606
+    - path: ./data//products/switch_8_port
+      hash: md5
+      md5: bbf03f2b1a4885eef7066a1fc010fc41.dir
+      size: 22827989
+      nfiles: 19
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/switch_8_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: a9b5048b92f669471b240f3fce683dc0.dir
+      size: 5179747
+      nfiles: 4
+  target-pose@bus_coppler_gray-testing-defect-exchange-rails-cl-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=bus_coppler_gray-testing/defect-exchange-rails-cl-cr --product-name=bus_coppler_gray"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/bus_coppler_gray-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: 828686781420538738c8bb4a0eca7417.dir
+      size: 7034994884
+      nfiles: 3616
+    - path: ./data//products/bus_coppler_gray
+      hash: md5
+      md5: 48b387c4dd70c855e2d4d6db62870fc3.dir
+      size: 29299073
+      nfiles: 20
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: b3e3b6ca71b85399a25259f0e98baf3d.dir
+      size: 5799053
+      nfiles: 4
+  target-pose@switch_8_port-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=switch_8_port-training/no-defect --product-name=switch_8_port"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/switch_8_port-training/no-defect
+      hash: md5
+      md5: 47b4bc4970e4a3505b2f38300f4e64cc.dir
+      size: 7309697014
+      nfiles: 3612
+    - path: ./data//products/switch_8_port
+      hash: md5
+      md5: bbf03f2b1a4885eef7066a1fc010fc41.dir
+      size: 22827989
+      nfiles: 19
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/switch_8_port-training/no-defect
+      hash: md5
+      md5: c62cade362ca34374cc4cadf64170698.dir
+      size: 5179749
+      nfiles: 4
+  target-pose@bus_coppler_gray-testing-defect-rail-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=bus_coppler_gray-testing/defect-rail-cr --product-name=bus_coppler_gray"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/bus_coppler_gray-testing/defect-rail-cr
+      hash: md5
+      md5: b80d1c8799e3aabd955e5600e174b4bb.dir
+      size: 7149107964
+      nfiles: 3612
+    - path: ./data//products/bus_coppler_gray
+      hash: md5
+      md5: 48b387c4dd70c855e2d4d6db62870fc3.dir
+      size: 29299073
+      nfiles: 20
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-rail-cr
+      hash: md5
+      md5: a7b2f740a062702883c79e001b15d2a4.dir
+      size: 5798617
+      nfiles: 4
+  target-pose@2700642-testing-defect-top-right:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=2700642-testing/defect-top-right --product-name=2700642"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/2700642-testing/defect-top-right
+      hash: md5
+      md5: 5a92043f407c5e27fff78131044edb2a.dir
+      size: 7508914118
+      nfiles: 3608
+    - path: ./data//products/2700642
+      hash: md5
+      md5: 00bc13d0d50080944961dbf901043bc4.dir
+      size: 27274242
+      nfiles: 14
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/2700642-testing/defect-top-right
+      hash: md5
+      md5: fbd0b2b5618f7ab3015d95bc11859509.dir
+      size: 4773083
+      nfiles: 4
+  target-pose@bus_coppler_green-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=bus_coppler_green-training/no-defect --product-name=bus_coppler_green"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/bus_coppler_green-training/no-defect
+      hash: md5
+      md5: 502bb2cc98fbacc58ae34fa3a0fae39f.dir
+      size: 7131312569
+      nfiles: 3606
+    - path: ./data//products/bus_coppler_green
+      hash: md5
+      md5: 6708011737db6d07a72518a2f18ace8f.dir
+      size: 25674352
+      nfiles: 21
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/bus_coppler_green-training/no-defect
+      hash: md5
+      md5: eec6087a7fbe6215f54711a163463084.dir
+      size: 5798623
+      nfiles: 4
+  target-pose@bus_coppler_gray-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=bus_coppler_gray-training/no-defect --product-name=bus_coppler_gray"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/bus_coppler_gray-training/no-defect
+      hash: md5
+      md5: 1835a94957c092ec942d38316fb93c07.dir
+      size: 7142921825
+      nfiles: 3608
+    - path: ./data//products/bus_coppler_gray
+      hash: md5
+      md5: 48b387c4dd70c855e2d4d6db62870fc3.dir
+      size: 29299073
+      nfiles: 20
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/bus_coppler_gray-training/no-defect
+      hash: md5
+      md5: 9afce922a0fa20aaee8d33f8bcceae2c.dir
+      size: 5799037
+      nfiles: 4
+  render-synthetic@bus_coppler_gray-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-training/no-defect --product_name=bus_coppler_gray
+      --results_root=./results/ --type=no-defect"
+    deps:
+    - path: ./data//products/bus_coppler_gray/compiled_scene_0.blend
+      hash: md5
+      md5: ce58379de1f00cf33f33b8579a316a5f
+      size: 4297184
+    - path: ./results//scene/bus_coppler_gray-training/no-defect/transforms_synthetic_rendering.json
+      hash: md5
+      md5: a0a529f59d784911e192f990a7d37627
+      size: 89672
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/bus_coppler_gray-training/no-defect
+      hash: md5
+      md5: 281448b8a2a461163cb27a2124f23e66.dir
+      size: 28392954
+      nfiles: 288
+  render-synthetic@bus_coppler_green-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-training/no-defect --product_name=bus_coppler_green
+      --results_root=./results/ --type=no-defect"
+    deps:
+    - path: ./data//products/bus_coppler_green/compiled_scene_0.blend
+      hash: md5
+      md5: 6f657b20fae9cccf09d189138ee858aa
+      size: 4259360
+    - path: ./results//scene/bus_coppler_green-training/no-defect/transforms_synthetic_rendering.json
+      hash: md5
+      md5: d93c990b44e0c5d573ddba8597ffcffa
+      size: 89677
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/bus_coppler_green-training/no-defect
+      hash: md5
+      md5: 5aef69a69720ebb158d724305cd0af9e.dir
+      size: 32960992
+      nfiles: 288
+  render-synthetic@switch_8_port-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=switch_8_port-training/no-defect --product_name=switch_8_port
+      --results_root=./results/ --type=no-defect"
+    deps:
+    - path: ./data//products/switch_8_port/compiled_scene_0.blend
+      hash: md5
+      md5: 062df71637ec48b2251a11f53f0bcc30
+      size: 2906368
+    - path: ./results//scene/switch_8_port-training/no-defect/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 3bf4fe35f5c4af0f34da2fb713b51358
+      size: 89686
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/switch_8_port-training/no-defect
+      hash: md5
+      md5: df296c2d6c41b10d2826e4eb72dc44bb.dir
+      size: 33747441
+      nfiles: 288
+  target-pose@switch_16_port-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=switch_16_port-training/no-defect --product-name=switch_16_port"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//commonfile_large.txt
+      hash: md5
+      md5: ddc091900633560b59949333b947c2a8
+      size: 536870912
+    - path: ./data//images/switch_16_port-training/no-defect
+      hash: md5
+      md5: ebf9ded955e35dd396f98939e327d6f3.dir
+      size: 7410730176
+      nfiles: 3488
+    - path: ./data//products/switch_16_port
+      hash: md5
+      md5: 66438c44527df92ec4bb18c8c300b904.dir
+      size: 30095181
+      nfiles: 15
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 30ba65d4d161ff99e0890be9d2f26859
+      size: 23746
+    outs:
+    - path: ./results//scene/switch_16_port-training/no-defect
+      hash: md5
+      md5: a42931acbaec0b2947a7d60ffbface7b.dir
+      size: 1691145267
+      nfiles: 578
+  render-synthetic@switch_16_port-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=switch_16_port-training/no-defect --product_name=switch_16_port
+      --results_root=./results/ --type=no-defect"
+    deps:
+    - path: ./data//products/switch_16_port/compiled_scene_0.blend
+      hash: md5
+      md5: dd522966731f692cd92e4e36d0710278
+      size: 5213324
+    - path: ./results//scene/switch_16_port-training/no-defect/transforms_synthetic_rendering.json
+      hash: md5
+      md5: aaa4fec9d7db9e1e3483993f03670886
+      size: 89665
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/switch_16_port-training/no-defect
+      hash: md5
+      md5: bbbae6197d41d605ab7b99cc2c07cfd7.dir
+      size: 40420868
+      nfiles: 288
+  defect-mask@switch_8_port-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=switch_8_port-training/no-defect --results_root=./results/ --product-name=switch_8_port
+      --type=no-defect --subtype=no-defect --location="
+    deps:
+    - path: ./results//scene/switch_8_port-training/no-defect
+      hash: md5
+      md5: 1605aa476697ad9166ef8c1cc46b5461.dir
+      size: 1473786139
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/switch_8_port-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  target-pose@bus_coppler_gray-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=bus_coppler_gray-testing/defect-mount-clipper --product-name=bus_coppler_gray"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/bus_coppler_gray-testing/defect-mount-clipper
+      hash: md5
+      md5: 4c3f683804fbd986ae5551b67ebe3edf.dir
+      size: 6988816456
+      nfiles: 3582
+    - path: ./data//products/bus_coppler_gray
+      hash: md5
+      md5: 48b387c4dd70c855e2d4d6db62870fc3.dir
+      size: 29299073
+      nfiles: 20
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-mount-clipper
+      hash: md5
+      md5: 4a4c5e0e1255dfd7b9861dd14a4b64e5.dir
+      size: 5799039
+      nfiles: 4
+  defect-mask@bus_coppler_green-testing-defect-rail-l:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-rail-l --results_root=./results/
+      --product-name=bus_coppler_green --type=defect --subtype=missing --location=rail-l"
+    deps:
+    - path: ./results//scene/bus_coppler_green-testing/defect-rail-l
+      hash: md5
+      md5: 4bca0590f51104e54731652d291d9ee9.dir
+      size: 344036283
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/bus_coppler_green-testing/defect-rail-l
+      hash: md5
+      md5: d6ed110090dcf42d8969df0f5aa764a6.dir
+      size: 1818233
+      nfiles: 60
+  defect-mask@switch_16_port-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=switch_16_port-training/no-defect --results_root=./results/ --product-name=switch_16_port
+      --type=no-defect --subtype=no-defect --location="
+    deps:
+    - path: ./results//scene/switch_16_port-training/no-defect
+      hash: md5
+      md5: a42931acbaec0b2947a7d60ffbface7b.dir
+      size: 1691145267
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/switch_16_port-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask@2700642-testing-defect-bottom-right:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=2700642-testing/defect-bottom-right --results_root=./results/
+      --product-name=2700642 --type=defect --subtype=missing --location=connector_bottom_right"
+    deps:
+    - path: ./results//scene/2700642-testing/defect-bottom-right
+      hash: md5
+      md5: 025497d51caf227347c1311d66a440a2.dir
+      size: 4773085
+      nfiles: 4
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/2700642-testing/defect-bottom-right
+      hash: md5
+      md5: 085e0da72b064fff12c0a2e3fb04d06e.dir
+      size: 26902
+      nfiles: 1
+  target-pose@bus_coppler_gray-testing-defect-rail-l:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=bus_coppler_gray-testing/defect-rail-l --product-name=bus_coppler_gray"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/bus_coppler_gray-testing/defect-rail-l
+      hash: md5
+      md5: eebd3f786a50c148dc709d3f74de8c96.dir
+      size: 7122288236
+      nfiles: 3608
+    - path: ./data//products/bus_coppler_gray
+      hash: md5
+      md5: 48b387c4dd70c855e2d4d6db62870fc3.dir
+      size: 29299073
+      nfiles: 20
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-rail-l
+      hash: md5
+      md5: c7bde476dad64f384918610deb6d37e3.dir
+      size: 5799039
+      nfiles: 4
+  target-pose@bus_coppler_gray-testing-defect-exchange-rails-l-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=bus_coppler_gray-testing/defect-exchange-rails-l-cr --product-name=bus_coppler_gray"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/bus_coppler_gray-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: 3da38db2cf712ed4cff66f276d9423bc.dir
+      size: 7159845464
+      nfiles: 3608
+    - path: ./data//products/bus_coppler_gray
+      hash: md5
+      md5: 48b387c4dd70c855e2d4d6db62870fc3.dir
+      size: 29299073
+      nfiles: 20
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: 716199b78269b8f6a6ce5a7182b094d6.dir
+      size: 5799055
+      nfiles: 4
+  defect-mask@2700642-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=2700642-training/no-defect --results_root=./results/ --product-name=2700642
+      --type=no-defect --subtype=missing --location="
+    deps:
+    - path: ./results//scene/2700642-training/no-defect
+      hash: md5
+      md5: 179cec38dbc1808e5399beefb99f5b3c.dir
+      size: 4773083
+      nfiles: 4
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/2700642-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  target-pose@switch_8_port-testing-defect-connector-side:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=switch_8_port-testing/defect-connector-side --product-name=switch_8_port"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/switch_8_port-testing/defect-connector-side
+      hash: md5
+      md5: f979925ffb60fbb2dd263f792a731f50.dir
+      size: 7307273603
+      nfiles: 3604
+    - path: ./data//products/switch_8_port
+      hash: md5
+      md5: bbf03f2b1a4885eef7066a1fc010fc41.dir
+      size: 22827989
+      nfiles: 19
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/switch_8_port-testing/defect-connector-side
+      hash: md5
+      md5: 671a343126bffb79f6f11a9dc3aa1718.dir
+      size: 5179495
+      nfiles: 4
+  defect-mask@switch_8_port-testing-defect-connector-side:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=switch_8_port-testing/defect-connector-side --results_root=./results/
+      --product-name=switch_8_port --type=defect --subtype=missing --location=connector_side"
+    deps:
+    - path: ./results//scene/switch_8_port-testing/defect-connector-side
+      hash: md5
+      md5: 2b93df794e647676e821ab195a385985.dir
+      size: 1473641061
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/switch_8_port-testing/defect-connector-side
+      hash: md5
+      md5: 82dbc60af711bd47e435b7f0ccc5da7d.dir
+      size: 7879096
+      nfiles: 288
+  target-pose@bus_coppler_green-testing-defect-exchange-rails-cl-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=bus_coppler_green-testing/defect-exchange-rails-cl-cr --product-name=bus_coppler_green"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/bus_coppler_green-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: f05bf55eb85fe0bffc2a2a69920d2673.dir
+      size: 7191086796
+      nfiles: 3604
+    - path: ./data//products/bus_coppler_green
+      hash: md5
+      md5: 6708011737db6d07a72518a2f18ace8f.dir
+      size: 25674352
+      nfiles: 21
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/bus_coppler_green-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: 3f7b290b7405656972b8b28e9c711440.dir
+      size: 5799059
+      nfiles: 4
+  defect-mask@bus_coppler_green-testing-defect-exchange-rails-cl-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-exchange-rails-cl-cr --results_root=./results/
+      --product-name=bus_coppler_green --type=defect --subtype=texture --location=exchange-rails-cl-cr"
+    deps:
+    - path: ./results//scene/bus_coppler_green-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: 8435f1a654aa098433eca54920014095.dir
+      size: 344178987
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/bus_coppler_green-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask@2700642-testing-defect-top-right:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=2700642-testing/defect-top-right --results_root=./results/ --product-name=2700642
+      --type=defect --subtype=missing --location=connector_top_right"
+    deps:
+    - path: ./results//scene/2700642-testing/defect-top-right
+      hash: md5
+      md5: fbd0b2b5618f7ab3015d95bc11859509.dir
+      size: 4773083
+      nfiles: 4
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/2700642-testing/defect-top-right
+      hash: md5
+      md5: 6a59444f5e0d613c90949afdc16df536.dir
+      size: 26989
+      nfiles: 1
+  target-pose@2700642-testing-defect-top-left:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=2700642-testing/defect-top-left --product-name=2700642"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/2700642-testing/defect-top-left
+      hash: md5
+      md5: 6e084858d95f7f649425e9e19b973c31.dir
+      size: 7509300066
+      nfiles: 3608
+    - path: ./data//products/2700642
+      hash: md5
+      md5: 00bc13d0d50080944961dbf901043bc4.dir
+      size: 27274242
+      nfiles: 14
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/2700642-testing/defect-top-left
+      hash: md5
+      md5: bf70dbf0c2fe6501d30b1135e4f15ad5.dir
+      size: 4772733
+      nfiles: 4
+  defect-mask@bus_coppler_gray-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-training/no-defect --results_root=./results/
+      --product-name=bus_coppler_gray --type=no-defect --subtype=no-defect --location="
+    deps:
+    - path: ./results//scene/bus_coppler_gray-training/no-defect
+      hash: md5
+      md5: 3ec04b5bce8783ed61d1e773768c74cb.dir
+      size: 344141211
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/bus_coppler_gray-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  target-pose@bus_coppler_green-testing-defect-exchange-rails-l-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=bus_coppler_green-testing/defect-exchange-rails-l-cr --product-name=bus_coppler_green"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/bus_coppler_green-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: c50cea8614a8c78674b1dbd30f964167.dir
+      size: 7165415880
+      nfiles: 3608
+    - path: ./data//products/bus_coppler_green
+      hash: md5
+      md5: 6708011737db6d07a72518a2f18ace8f.dir
+      size: 25674352
+      nfiles: 21
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/bus_coppler_green-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: 67a16e5833ff39643fa6a8d2e96c6570.dir
+      size: 5798633
+      nfiles: 4
+  defect-mask@bus_coppler_green-testing-defect-exchange-rails-l-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-exchange-rails-l-cr --results_root=./results/
+      --product-name=bus_coppler_green --type=defect --subtype=missing_exchange --location=exchange-rails-l-cr"
+    deps:
+    - path: ./results//scene/bus_coppler_green-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: 921d485d91b31a7e5c7ffba647679b42.dir
+      size: 344220389
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/bus_coppler_green-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: 448dd9241fd069e7528f92856a7c6589.dir
+      size: 1983721
+      nfiles: 60
+  target-pose@bus_coppler_green-testing-defect-rail-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=bus_coppler_green-testing/defect-rail-cr --product-name=bus_coppler_green"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/bus_coppler_green-testing/defect-rail-cr
+      hash: md5
+      md5: eea296c370ae5254ab44800b80af3a2f.dir
+      size: 7183256762
+      nfiles: 3604
+    - path: ./data//products/bus_coppler_green
+      hash: md5
+      md5: 6708011737db6d07a72518a2f18ace8f.dir
+      size: 25674352
+      nfiles: 21
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/bus_coppler_green-testing/defect-rail-cr
+      hash: md5
+      md5: c61fd2e685e7def9cba5a3239e00dea9.dir
+      size: 5799049
+      nfiles: 4
+  target-pose@bus_coppler_green-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=bus_coppler_green-testing/defect-mount-clipper --product-name=bus_coppler_green"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/bus_coppler_green-testing/defect-mount-clipper
+      hash: md5
+      md5: 90c230d3d3016c389d772ea1603865d0.dir
+      size: 7207250606
+      nfiles: 3600
+    - path: ./data//products/bus_coppler_green
+      hash: md5
+      md5: 6708011737db6d07a72518a2f18ace8f.dir
+      size: 25674352
+      nfiles: 21
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/bus_coppler_green-testing/defect-mount-clipper
+      hash: md5
+      md5: 5177c64f42793f1c07c3254166fdcc02.dir
+      size: 5799047
+      nfiles: 4
+  defect-mask@bus_coppler_green-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-mount-clipper --results_root=./results/
+      --product-name=bus_coppler_green --type=defect --subtype=missing --location=mount-clipper"
+    deps:
+    - path: ./results//scene/bus_coppler_green-testing/defect-mount-clipper
+      hash: md5
+      md5: 7e378d1ca815fdcb1a83a000046f1db9.dir
+      size: 344357161
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/bus_coppler_green-testing/defect-mount-clipper
+      hash: md5
+      md5: 53e77b0ed9a54fa641b3169b9a5724c8.dir
+      size: 1606457
+      nfiles: 60
+  defect-mask@bus_coppler_gray-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-mount-clipper --results_root=./results/
+      --product-name=bus_coppler_gray --type=defect --subtype=missing --location=mount-clipper"
+    deps:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-mount-clipper
+      hash: md5
+      md5: b6e6a9e5653c8a51f55a16c03394ace6.dir
+      size: 344226177
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/bus_coppler_gray-testing/defect-mount-clipper
+      hash: md5
+      md5: a2f0f58605294b0adf5a8120c1a3cc29.dir
+      size: 1615351
+      nfiles: 60
+  defect-mask@bus_coppler_gray-testing-defect-exchange-rails-cl-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-exchange-rails-cl-cr --results_root=./results/
+      --product-name=bus_coppler_gray --type=defect --subtype=texture --location=exchange-rails-cl-cr"
+    deps:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: 5868932187b38376205ed7e286b70b28.dir
+      size: 343815415
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/bus_coppler_gray-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  target-pose@2700642-testing-defect-bottom-left:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=2700642-testing/defect-bottom-left --product-name=2700642"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/2700642-testing/defect-bottom-left
+      hash: md5
+      md5: 2da7beadbb15c5a4d1881a70d9a0a057.dir
+      size: 7521250381
+      nfiles: 3606
+    - path: ./data//products/2700642
+      hash: md5
+      md5: 00bc13d0d50080944961dbf901043bc4.dir
+      size: 27274242
+      nfiles: 14
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/2700642-testing/defect-bottom-left
+      hash: md5
+      md5: 7529c4436e2de65ea7b452d99812f56e.dir
+      size: 4773097
+      nfiles: 4
+  defect-mask@2700642-testing-defect-bottom-left:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=2700642-testing/defect-bottom-left --results_root=./results/
+      --product-name=2700642 --type=defect --subtype=missing --location=connector_bottom_left"
+    deps:
+    - path: ./results//scene/2700642-testing/defect-bottom-left
+      hash: md5
+      md5: 7529c4436e2de65ea7b452d99812f56e.dir
+      size: 4773097
+      nfiles: 4
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/2700642-testing/defect-bottom-left
+      hash: md5
+      md5: c15f0c2379c4dafabd65bdf35a34a963.dir
+      size: 26783
+      nfiles: 1
+  defect-mask@bus_coppler_green-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-training/no-defect --results_root=./results/
+      --product-name=bus_coppler_green --type=no-defect --subtype=no-defect --location="
+    deps:
+    - path: ./results//scene/bus_coppler_green-training/no-defect
+      hash: md5
+      md5: 1dc151ec452c828a4b433aaf9d1ff156.dir
+      size: 344300131
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/bus_coppler_green-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask@2700642-testing-defect-top-left:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=2700642-testing/defect-top-left --results_root=./results/ --product-name=2700642
+      --type=defect --subtype=missing --location=connector_top_left"
+    deps:
+    - path: ./results//scene/2700642-testing/defect-top-left
+      hash: md5
+      md5: bf70dbf0c2fe6501d30b1135e4f15ad5.dir
+      size: 4772733
+      nfiles: 4
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/2700642-testing/defect-top-left
+      hash: md5
+      md5: 7540d4154a6a547ecb1b4a233eed1e0f.dir
+      size: 26952
+      nfiles: 1
+  defect-mask@bus_coppler_gray-testing-defect-exchange-rails-l-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-exchange-rails-l-cr --results_root=./results/
+      --product-name=bus_coppler_gray --type=defect --subtype=missing_exchange --location=exchange-rails-l-cr"
+    deps:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: c035af536035c75aafd7685a5b299841.dir
+      size: 344106609
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/bus_coppler_gray-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: 9f30b55cd2746a5ce2899071a96ed9ee.dir
+      size: 2008592
+      nfiles: 60
+  defect-mask@bus_coppler_gray-testing-defect-rail-l:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-rail-l --results_root=./results/
+      --product-name=bus_coppler_gray --type=defect --subtype=missing --location=rail-l"
+    deps:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-rail-l
+      hash: md5
+      md5: 51c9aaf12da29ea53f6fcfc411f3728f.dir
+      size: 344617989
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/bus_coppler_gray-testing/defect-rail-l
+      hash: md5
+      md5: b6bd5bb701dbc7a00564387872264e7a.dir
+      size: 1875437
+      nfiles: 60
+  target-pose@switch_8_port-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=switch_8_port-testing/defect-mount-clipper --product-name=switch_8_port"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//images/switch_8_port-testing/defect-mount-clipper
+      hash: md5
+      md5: 5c14948ebad76d5fecb6069bfb6610ab.dir
+      size: 7305796208
+      nfiles: 3606
+    - path: ./data//products/switch_8_port
+      hash: md5
+      md5: bbf03f2b1a4885eef7066a1fc010fc41.dir
+      size: 22827989
+      nfiles: 19
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 22fd294fbb6ee0cde299bc53f0503a42
+      size: 23786
+    outs:
+    - path: ./results//scene/switch_8_port-testing/defect-mount-clipper
+      hash: md5
+      md5: 9a0444441fdfd0987465e82011ba9d7f.dir
+      size: 5179747
+      nfiles: 4
+  render-synthetic@bus_coppler_gray-testing-defect-rail-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-rail-cr --product_name=bus_coppler_gray
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/bus_coppler_gray/compiled_scene_0.blend
+      hash: md5
+      md5: ce58379de1f00cf33f33b8579a316a5f
+      size: 4297184
+    - path: ./results//scene/bus_coppler_gray-testing/defect-rail-cr/transforms_synthetic_rendering.json
+      hash: md5
+      md5: a840106982509b1e07d517b6a2445e16
+      size: 89688
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/bus_coppler_gray-testing/defect-rail-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@bus_coppler_gray-testing-defect-exchange-rails-cl-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-exchange-rails-cl-cr --product_name=bus_coppler_gray
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/bus_coppler_gray/compiled_scene_0.blend
+      hash: md5
+      md5: ce58379de1f00cf33f33b8579a316a5f
+      size: 4297184
+    - path: ./results//scene/bus_coppler_gray-testing/defect-exchange-rails-cl-cr/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 23e1f5a530962e5940ea513068aa3609
+      size: 89673
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/bus_coppler_gray-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@bus_coppler_gray-testing-defect-rail-l:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-rail-l --product_name=bus_coppler_gray
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/bus_coppler_gray/compiled_scene_0.blend
+      hash: md5
+      md5: ce58379de1f00cf33f33b8579a316a5f
+      size: 4297184
+    - path: ./results//scene/bus_coppler_gray-testing/defect-rail-l/transforms_synthetic_rendering.json
+      hash: md5
+      md5: dd84171825e0d2777cd7ceb5b3441531
+      size: 89706
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/bus_coppler_gray-testing/defect-rail-l
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@2700642-testing-defect-bottom-right:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=2700642-testing/defect-bottom-right --product_name=2700642 --results_root=./results/
+      --type=defect"
+    deps:
+    - path: ./data//products/2700642/compiled_scene_0.blend
+      hash: md5
+      md5: b093b847157b6d6007edea61673cd06c
+      size: 6552636
+    - path: ./results//scene/2700642-testing/defect-bottom-right/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 9203801bddd6ce8cab9b8b7961ca78cd
+      size: 311
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/2700642-testing/defect-bottom-right
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@2700642-testing-defect-bottom-left:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=2700642-testing/defect-bottom-left --product_name=2700642 --results_root=./results/
+      --type=defect"
+    deps:
+    - path: ./data//products/2700642/compiled_scene_0.blend
+      hash: md5
+      md5: b093b847157b6d6007edea61673cd06c
+      size: 6552636
+    - path: ./results//scene/2700642-testing/defect-bottom-left/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 8534eadf586bc4407af794b4c838f142
+      size: 317
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/2700642-testing/defect-bottom-left
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@2700642-testing-defect-top-left:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=2700642-testing/defect-top-left --product_name=2700642 --results_root=./results/
+      --type=defect"
+    deps:
+    - path: ./data//products/2700642/compiled_scene_0.blend
+      hash: md5
+      md5: b093b847157b6d6007edea61673cd06c
+      size: 6552636
+    - path: ./results//scene/2700642-testing/defect-top-left/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 0db1f436652618648f00a0afe945b84b
+      size: 311
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/2700642-testing/defect-top-left
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@2700642-testing-defect-top-right:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=2700642-testing/defect-top-right --product_name=2700642 --results_root=./results/
+      --type=defect"
+    deps:
+    - path: ./data//products/2700642/compiled_scene_0.blend
+      hash: md5
+      md5: b093b847157b6d6007edea61673cd06c
+      size: 6552636
+    - path: ./results//scene/2700642-testing/defect-top-right/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 4053ee44146b7ac5512d93a92075a70a
+      size: 318
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/2700642-testing/defect-top-right
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@2700642-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=2700642-training/no-defect --results_root=./results/ --product-name=2700642
+      --type=no-defect --subtype=missing --location="
+    deps:
+    - path: ./results//scene/2700642-training/no-defect
+      hash: md5
+      md5: 179cec38dbc1808e5399beefb99f5b3c.dir
+      size: 4773083
+      nfiles: 4
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/2700642-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@2700642-testing-defect-bottom-left:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=2700642-testing/defect-bottom-left --results_root=./results/
+      --product-name=2700642 --type=defect --subtype=missing --location=connector_bottom_left"
+    deps:
+    - path: ./results//scene/2700642-testing/defect-bottom-left
+      hash: md5
+      md5: 7529c4436e2de65ea7b452d99812f56e.dir
+      size: 4773097
+      nfiles: 4
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/2700642-testing/defect-bottom-left
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@2700642-testing-defect-top-left:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=2700642-testing/defect-top-left --results_root=./results/ --product-name=2700642
+      --type=defect --subtype=missing --location=connector_top_left"
+    deps:
+    - path: ./results//scene/2700642-testing/defect-top-left
+      hash: md5
+      md5: bf70dbf0c2fe6501d30b1135e4f15ad5.dir
+      size: 4772733
+      nfiles: 4
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/2700642-testing/defect-top-left
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@2700642-testing-defect-top-right:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=2700642-testing/defect-top-right --results_root=./results/ --product-name=2700642
+      --type=defect --subtype=missing --location=connector_top_right"
+    deps:
+    - path: ./results//scene/2700642-testing/defect-top-right
+      hash: md5
+      md5: fbd0b2b5618f7ab3015d95bc11859509.dir
+      size: 4773083
+      nfiles: 4
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/2700642-testing/defect-top-right
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@bus_coppler_gray-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-training/no-defect --results_root=./results/
+      --product-name=bus_coppler_gray --type=no-defect --subtype=no-defect --location="
+    deps:
+    - path: ./results//scene/bus_coppler_gray-training/no-defect
+      hash: md5
+      md5: 3ec04b5bce8783ed61d1e773768c74cb.dir
+      size: 344141211
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/bus_coppler_gray-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@bus_coppler_gray-testing-defect-rail-l:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-rail-l --results_root=./results/
+      --product-name=bus_coppler_gray --type=defect --subtype=missing --location=rail-l"
+    deps:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-rail-l
+      hash: md5
+      md5: 51c9aaf12da29ea53f6fcfc411f3728f.dir
+      size: 344617989
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/bus_coppler_gray-testing/defect-rail-l
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@bus_coppler_gray-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-mount-clipper --results_root=./results/
+      --product-name=bus_coppler_gray --type=defect --subtype=missing --location=mount-clipper"
+    deps:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-mount-clipper
+      hash: md5
+      md5: b6e6a9e5653c8a51f55a16c03394ace6.dir
+      size: 344226177
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/bus_coppler_gray-testing/defect-mount-clipper
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@bus_coppler_green-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-training/no-defect --results_root=./results/
+      --product-name=bus_coppler_green --type=no-defect --subtype=no-defect --location="
+    deps:
+    - path: ./results//scene/bus_coppler_green-training/no-defect
+      hash: md5
+      md5: 1dc151ec452c828a4b433aaf9d1ff156.dir
+      size: 344300131
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/bus_coppler_green-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@2700642-testing-defect-bottom-right:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=2700642-testing/defect-bottom-right --results_root=./results/
+      --product-name=2700642 --type=defect --subtype=missing --location=connector_bottom_right"
+    deps:
+    - path: ./results//scene/2700642-testing/defect-bottom-right
+      hash: md5
+      md5: 025497d51caf227347c1311d66a440a2.dir
+      size: 4773085
+      nfiles: 4
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/2700642-testing/defect-bottom-right
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@bus_coppler_green-testing-defect-rail-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-rail-cr --product_name=bus_coppler_green
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/bus_coppler_green/compiled_scene_0.blend
+      hash: md5
+      md5: 6f657b20fae9cccf09d189138ee858aa
+      size: 4259360
+    - path: ./results//scene/bus_coppler_green-testing/defect-rail-cr/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 063c5b5f3928caa563f711169bcf6d15
+      size: 89680
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/bus_coppler_green-testing/defect-rail-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@bus_coppler_green-testing-defect-rail-l:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-rail-l --product_name=bus_coppler_green
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/bus_coppler_green/compiled_scene_0.blend
+      hash: md5
+      md5: 6f657b20fae9cccf09d189138ee858aa
+      size: 4259360
+    - path: ./results//scene/bus_coppler_green-testing/defect-rail-l/transforms_synthetic_rendering.json
+      hash: md5
+      md5: c934db12ccb3173735ba38f1045071d0
+      size: 89697
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/bus_coppler_green-testing/defect-rail-l
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@bus_coppler_green-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-mount-clipper --product_name=bus_coppler_green
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/bus_coppler_green/compiled_scene_0.blend
+      hash: md5
+      md5: 6f657b20fae9cccf09d189138ee858aa
+      size: 4259360
+    - path: ./results//scene/bus_coppler_green-testing/defect-mount-clipper/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 0d0641809ba189c40f16a4dc229baa02
+      size: 89731
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/bus_coppler_green-testing/defect-mount-clipper
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@bus_coppler_green-testing-defect-exchange-rails-cl-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-exchange-rails-cl-cr --product_name=bus_coppler_green
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/bus_coppler_green/compiled_scene_0.blend
+      hash: md5
+      md5: 6f657b20fae9cccf09d189138ee858aa
+      size: 4259360
+    - path: ./results//scene/bus_coppler_green-testing/defect-exchange-rails-cl-cr/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 2808f5bf52f968e3b82ca907fa495a25
+      size: 2807
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/bus_coppler_green-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@bus_coppler_green-testing-defect-exchange-rails-l-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-exchange-rails-l-cr --product_name=bus_coppler_green
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/bus_coppler_green/compiled_scene_0.blend
+      hash: md5
+      md5: 6f657b20fae9cccf09d189138ee858aa
+      size: 4259360
+    - path: ./results//scene/bus_coppler_green-testing/defect-exchange-rails-l-cr/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 92017a15cfdc3bac2709e9d6a26b4ea9
+      size: 89643
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/bus_coppler_green-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@switch_8_port-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=switch_8_port-testing/defect-mount-clipper --product_name=switch_8_port
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/switch_8_port/compiled_scene_0.blend
+      hash: md5
+      md5: 062df71637ec48b2251a11f53f0bcc30
+      size: 2906368
+    - path: ./results//scene/switch_8_port-testing/defect-mount-clipper/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 4ec53b3bebfc0bbdf9dc62ece05861be
+      size: 89743
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/switch_8_port-testing/defect-mount-clipper
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@switch_8_port-testing-defect-exchange-rj-45:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=switch_8_port-testing/defect-exchange-rj-45 --product_name=switch_8_port
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/switch_8_port/compiled_scene_0.blend
+      hash: md5
+      md5: 062df71637ec48b2251a11f53f0bcc30
+      size: 2906368
+    - path: ./results//scene/switch_8_port-testing/defect-exchange-rj-45/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 9c3092de81a7d758e05ce9fa77b0753c
+      size: 89687
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/switch_8_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@bus_coppler_gray-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-mount-clipper --product_name=bus_coppler_gray
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/bus_coppler_gray/compiled_scene_0.blend
+      hash: md5
+      md5: ce58379de1f00cf33f33b8579a316a5f
+      size: 4297184
+    - path: ./results//scene/bus_coppler_gray-testing/defect-mount-clipper/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 1aae903943b283a24159964a77268b43
+      size: 89761
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/bus_coppler_gray-testing/defect-mount-clipper
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@switch_8_port-testing-defect-connector-side:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=switch_8_port-testing/defect-connector-side --product_name=switch_8_port
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/switch_8_port/compiled_scene_0.blend
+      hash: md5
+      md5: 062df71637ec48b2251a11f53f0bcc30
+      size: 2906368
+    - path: ./results//scene/switch_8_port-testing/defect-connector-side/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 4ad0cf564d9439000d4e6ea70cf8efef
+      size: 89704
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/switch_8_port-testing/defect-connector-side
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@bus_coppler_gray-testing-defect-exchange-rails-l-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-exchange-rails-l-cr --product_name=bus_coppler_gray
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/bus_coppler_gray/compiled_scene_0.blend
+      hash: md5
+      md5: ce58379de1f00cf33f33b8579a316a5f
+      size: 4297184
+    - path: ./results//scene/bus_coppler_gray-testing/defect-exchange-rails-l-cr/transforms_synthetic_rendering.json
+      hash: md5
+      md5: f26c5b4eb0261b650160ffe41c91a0b9
+      size: 89698
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/bus_coppler_gray-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@bus_coppler_gray-testing-defect-rail-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-rail-cr --results_root=./results/
+      --product-name=bus_coppler_gray --type=defect --subtype=missing --location=rail-cr"
+    deps:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-rail-cr
+      hash: md5
+      md5: 6177771bb34aaed591bc2dc4022f22ed.dir
+      size: 344204755
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/bus_coppler_gray-testing/defect-rail-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask@bus_coppler_gray-testing-defect-rail-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-rail-cr --results_root=./results/
+      --product-name=bus_coppler_gray --type=defect --subtype=missing --location=rail-cr"
+    deps:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-rail-cr
+      hash: md5
+      md5: 6177771bb34aaed591bc2dc4022f22ed.dir
+      size: 344204755
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/bus_coppler_gray-testing/defect-rail-cr
+      hash: md5
+      md5: 6467c62e9eea60414e74519696bd61bd.dir
+      size: 1835666
+      nfiles: 60
+  defect-mask-texture@bus_coppler_green-testing-defect-rail-l:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-rail-l --results_root=./results/
+      --product-name=bus_coppler_green --type=defect --subtype=missing --location=rail-l"
+    deps:
+    - path: ./results//scene/bus_coppler_green-testing/defect-rail-l
+      hash: md5
+      md5: 4bca0590f51104e54731652d291d9ee9.dir
+      size: 344036283
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/bus_coppler_green-testing/defect-rail-l
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@bus_coppler_green-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-mount-clipper --results_root=./results/
+      --product-name=bus_coppler_green --type=defect --subtype=missing --location=mount-clipper"
+    deps:
+    - path: ./results//scene/bus_coppler_green-testing/defect-mount-clipper
+      hash: md5
+      md5: 7e378d1ca815fdcb1a83a000046f1db9.dir
+      size: 344357161
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/bus_coppler_green-testing/defect-mount-clipper
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@bus_coppler_gray-testing-defect-exchange-rails-l-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-exchange-rails-l-cr --results_root=./results/
+      --product-name=bus_coppler_gray --type=defect --subtype=missing_exchange --location=exchange-rails-l-cr"
+    deps:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: 5b2494aba3d949ccd8dda3174943c08f.dir
+      size: 344106609
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/bus_coppler_gray-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@switch_8_port-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=switch_8_port-testing/defect-mount-clipper --results_root=./results/
+      --product-name=switch_8_port --type=defect --subtype=missing --location=mount_clipper"
+    deps:
+    - path: ./results//scene/switch_8_port-testing/defect-mount-clipper
+      hash: md5
+      md5: 18776f69b39cf600628ebb91bee3689f.dir
+      size: 1473686347
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/switch_8_port-testing/defect-mount-clipper
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask@bus_coppler_green-testing-defect-rail-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-rail-cr --results_root=./results/
+      --product-name=bus_coppler_green --type=defect --subtype=missing --location=rail-cr"
+    deps:
+    - path: ./results//scene/bus_coppler_green-testing/defect-rail-cr
+      hash: md5
+      md5: a0b2cb9454ffc4d47842795d2052eb48.dir
+      size: 343965665
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/bus_coppler_green-testing/defect-rail-cr
+      hash: md5
+      md5: 26e7c2b36a5153071f43dff97506f150.dir
+      size: 1817166
+      nfiles: 60
+  defect-mask-texture@switch_8_port-testing-defect-connector-side:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=switch_8_port-testing/defect-connector-side --results_root=./results/
+      --product-name=switch_8_port --type=defect --subtype=missing --location=connector_side"
+    deps:
+    - path: ./results//scene/switch_8_port-testing/defect-connector-side
+      hash: md5
+      md5: 2b93df794e647676e821ab195a385985.dir
+      size: 1473641061
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/switch_8_port-testing/defect-connector-side
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask@switch_8_port-testing-defect-exchange-rj-45:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=switch_8_port-testing/defect-exchange-rj-45 --results_root=./results/
+      --product-name=switch_8_port --type=defect --subtype=texture --location=exchange-rj-45"
+    deps:
+    - path: ./results//scene/switch_8_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: 45606b43102c5a813748f242db0bac39.dir
+      size: 1473675867
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/switch_8_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@bus_coppler_gray-testing-defect-exchange-rails-cl-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=bus_coppler_gray-testing/defect-exchange-rails-cl-cr --results_root=./results/
+      --product-name=bus_coppler_gray --type=defect --subtype=texture --location=exchange-rails-cl-cr"
+    deps:
+    - path: ./results//scene/bus_coppler_gray-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: d1e8b3657696e4f596aa1b8761fb1e5b.dir
+      size: 1652203157
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/bus_coppler_gray-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: ff094edd5377c9ff0db3b0347605cc16.dir
+      size: 3000873
+      nfiles: 288
+  defect-mask-texture@switch_8_port-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=switch_8_port-training/no-defect --results_root=./results/ --product-name=switch_8_port
+      --type=no-defect --subtype=no-defect --location="
+    deps:
+    - path: ./results//scene/switch_8_port-training/no-defect
+      hash: md5
+      md5: 1605aa476697ad9166ef8c1cc46b5461.dir
+      size: 1473786139
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/switch_8_port-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@bus_coppler_green-testing-defect-rail-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-rail-cr --results_root=./results/
+      --product-name=bus_coppler_green --type=defect --subtype=missing --location=rail-cr"
+    deps:
+    - path: ./results//scene/bus_coppler_green-testing/defect-rail-cr
+      hash: md5
+      md5: a0b2cb9454ffc4d47842795d2052eb48.dir
+      size: 343965665
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/bus_coppler_green-testing/defect-rail-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@bus_coppler_green-testing-defect-exchange-rails-l-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-exchange-rails-l-cr --results_root=./results/
+      --product-name=bus_coppler_green --type=defect --subtype=missing_exchange --location=exchange-rails-l-cr"
+    deps:
+    - path: ./results//scene/bus_coppler_green-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: 921d485d91b31a7e5c7ffba647679b42.dir
+      size: 344220389
+      nfiles: 122
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/bus_coppler_green-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask@switch_8_port-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=switch_8_port-testing/defect-mount-clipper --results_root=./results/
+      --product-name=switch_8_port --type=defect --subtype=missing --location=mount_clipper"
+    deps:
+    - path: ./results//scene/switch_8_port-testing/defect-mount-clipper
+      hash: md5
+      md5: 18776f69b39cf600628ebb91bee3689f.dir
+      size: 1473686347
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/switch_8_port-testing/defect-mount-clipper
+      hash: md5
+      md5: 958d369f469aa2dedb477169a5d3af79.dir
+      size: 7844167
+      nfiles: 288
+  defect-mask-texture@bus_coppler_green-testing-defect-exchange-rails-cl-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=bus_coppler_green-testing/defect-exchange-rails-cl-cr --results_root=./results/
+      --product-name=bus_coppler_green --type=defect --subtype=texture --location=exchange-rails-cl-cr"
+    deps:
+    - path: ./results//scene/bus_coppler_green-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: 6df070eb3d7316dc2c51efd6ba44ad72.dir
+      size: 51720648
+      nfiles: 20
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/bus_coppler_green-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: afbe1f26a8457cb51f9715489bf5f050.dir
+      size: 95315
+      nfiles: 9
+  defect-mask-texture@switch_8_port-testing-defect-exchange-rj-45:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=switch_8_port-testing/defect-exchange-rj-45 --results_root=./results/
+      --product-name=switch_8_port --type=defect --subtype=texture --location=exchange-rj-45"
+    deps:
+    - path: ./results//scene/switch_8_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: 93fa30a5f860c78831ee058b7c2defa1.dir
+      size: 1473675867
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/switch_8_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: d09f87450c161d58fe198d958ba9e295.dir
+      size: 2710356
+      nfiles: 288
+  format_dataset_regular@2700642-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=2700642-training/no-defect --product-name=2700642"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/2700642-training/no-defect
+      hash: md5
+      md5: 6f0ba3969ed817e5b73ccad24143a95c.dir
+      size: 2473499788
+      nfiles: 816
+    - path: ./data//products/2700642
+      hash: md5
+      md5: 00bc13d0d50080944961dbf901043bc4.dir
+      size: 27274242
+      nfiles: 14
+    - path: results/defect_mask/2700642-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: results/defect_mask_texture/2700642-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@bus_coppler_green-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=bus_coppler_green-training/no-defect --product-name=bus_coppler_green"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/bus_coppler_green-training/no-defect
+      hash: md5
+      md5: e15b92055d41fc3fd18000a45598e34f.dir
+      size: 1668771711
+      nfiles: 758
+    - path: ./data//products/bus_coppler_green
+      hash: md5
+      md5: d11ed6ea5216bd9b99302659474c0e5c.dir
+      size: 25674689
+      nfiles: 23
+    - path: results/defect_mask/bus_coppler_green-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: results/defect_mask_texture/bus_coppler_green-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@2700642-testing-defect-bottom-right:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=2700642-testing/defect-bottom-right --product-name=2700642"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: ea4c21e2c044497284cac2e239bfdccc
+      size: 3197
+      isexec: true
+    - path: ./data//images/2700642-testing/defect-bottom-right
+      hash: md5
+      md5: 0955ff563e0151bb619474a35d0b7433.dir
+      size: 7523106419
+      nfiles: 3608
+    - path: ./data//products/2700642
+      hash: md5
+      md5: 00bc13d0d50080944961dbf901043bc4.dir
+      size: 27274242
+      nfiles: 14
+    - path: results/defect_mask/2700642-testing/defect-bottom-right
+      hash: md5
+      md5: 085e0da72b064fff12c0a2e3fb04d06e.dir
+      size: 26902
+      nfiles: 1
+    - path: results/defect_mask_texture/2700642-testing/defect-bottom-right
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: cac8587a13cc62afc23114431a3f9620
+      size: 17742
+  format_dataset_regular@bus_coppler_gray-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=bus_coppler_gray-testing/defect-mount-clipper --product-name=bus_coppler_gray"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/bus_coppler_gray-testing/defect-mount-clipper
+      hash: md5
+      md5: 0706bd08b61746e6f294f21c4a1a03da.dir
+      size: 1646067202
+      nfiles: 754
+    - path: ./data//products/bus_coppler_gray
+      hash: md5
+      md5: 654adec06719dc965a58c8714b135c2a.dir
+      size: 29299246
+      nfiles: 21
+    - path: results/defect_mask/bus_coppler_gray-testing/defect-mount-clipper
+      hash: md5
+      md5: a2f0f58605294b0adf5a8120c1a3cc29.dir
+      size: 1615351
+      nfiles: 60
+    - path: results/defect_mask_texture/bus_coppler_gray-testing/defect-mount-clipper
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@bus_coppler_gray-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=bus_coppler_gray-training/no-defect --product-name=bus_coppler_gray"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/bus_coppler_gray-training/no-defect
+      hash: md5
+      md5: 527d6917afb9d3428f927a4b1b8f93f7.dir
+      size: 1652515480
+      nfiles: 750
+    - path: ./data//products/bus_coppler_gray
+      hash: md5
+      md5: 654adec06719dc965a58c8714b135c2a.dir
+      size: 29299246
+      nfiles: 21
+    - path: results/defect_mask/bus_coppler_gray-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: results/defect_mask_texture/bus_coppler_gray-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@2700642-testing-defect-top-left:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=2700642-testing/defect-top-left --product-name=2700642"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/2700642-testing/defect-top-left
+      hash: md5
+      md5: b349edd90408639464ca7aa08906e65b.dir
+      size: 1652304614
+      nfiles: 766
+    - path: ./data//products/2700642
+      hash: md5
+      md5: 00bc13d0d50080944961dbf901043bc4.dir
+      size: 27274242
+      nfiles: 14
+    - path: results/defect_mask/2700642-testing/defect-top-left
+      hash: md5
+      md5: 18927e7458f9f4ebb74b432766e6e439.dir
+      size: 1646209
+      nfiles: 60
+    - path: results/defect_mask_texture/2700642-testing/defect-top-left
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@bus_coppler_gray-testing-defect-rail-l:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=bus_coppler_gray-testing/defect-rail-l --product-name=bus_coppler_gray"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/bus_coppler_gray-testing/defect-rail-l
+      hash: md5
+      md5: 022ee18ff76c7b2db3745dd9248230fe.dir
+      size: 1643151823
+      nfiles: 776
+    - path: ./data//products/bus_coppler_gray
+      hash: md5
+      md5: 654adec06719dc965a58c8714b135c2a.dir
+      size: 29299246
+      nfiles: 21
+    - path: results/defect_mask/bus_coppler_gray-testing/defect-rail-l
+      hash: md5
+      md5: b6bd5bb701dbc7a00564387872264e7a.dir
+      size: 1875437
+      nfiles: 60
+    - path: results/defect_mask_texture/bus_coppler_gray-testing/defect-rail-l
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@2700642-testing-defect-top-right:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=2700642-testing/defect-top-right --product-name=2700642"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/2700642-testing/defect-top-right
+      hash: md5
+      md5: 111b451fa2414a382e50c3e21b923185.dir
+      size: 1622207483
+      nfiles: 752
+    - path: ./data//products/2700642
+      hash: md5
+      md5: 00bc13d0d50080944961dbf901043bc4.dir
+      size: 27274242
+      nfiles: 14
+    - path: results/defect_mask/2700642-testing/defect-top-right
+      hash: md5
+      md5: 5d9fbee2d0aad34b154279e110513857.dir
+      size: 1644018
+      nfiles: 60
+    - path: results/defect_mask_texture/2700642-testing/defect-top-right
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@bus_coppler_gray-testing-defect-rail-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=bus_coppler_gray-testing/defect-rail-cr --product-name=bus_coppler_gray"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/bus_coppler_gray-testing/defect-rail-cr
+      hash: md5
+      md5: ec8b680f667790bb145435df0993d385.dir
+      size: 1657766281
+      nfiles: 754
+    - path: ./data//products/bus_coppler_gray
+      hash: md5
+      md5: 654adec06719dc965a58c8714b135c2a.dir
+      size: 29299246
+      nfiles: 21
+    - path: results/defect_mask/bus_coppler_gray-testing/defect-rail-cr
+      hash: md5
+      md5: 6467c62e9eea60414e74519696bd61bd.dir
+      size: 1835666
+      nfiles: 60
+    - path: results/defect_mask_texture/bus_coppler_gray-testing/defect-rail-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@bus_coppler_gray-testing-defect-exchange-rails-l-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=bus_coppler_gray-testing/defect-exchange-rails-l-cr --product-name=bus_coppler_gray"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/bus_coppler_gray-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: 8777f7fb6289c60f0801384984bfff0c.dir
+      size: 1635997394
+      nfiles: 748
+    - path: ./data//products/bus_coppler_gray
+      hash: md5
+      md5: 654adec06719dc965a58c8714b135c2a.dir
+      size: 29299246
+      nfiles: 21
+    - path: results/defect_mask/bus_coppler_gray-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: 9f30b55cd2746a5ce2899071a96ed9ee.dir
+      size: 2008592
+      nfiles: 60
+    - path: results/defect_mask_texture/bus_coppler_gray-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@bus_coppler_gray-testing-defect-exchange-rails-cl-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=bus_coppler_gray-testing/defect-exchange-rails-cl-cr --product-name=bus_coppler_gray"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/bus_coppler_gray-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: cdfab1ab0260b97abd48b5219a9bf2bc.dir
+      size: 1656468415
+      nfiles: 732
+    - path: ./data//products/bus_coppler_gray
+      hash: md5
+      md5: 654adec06719dc965a58c8714b135c2a.dir
+      size: 29299246
+      nfiles: 21
+    - path: results/defect_mask/bus_coppler_gray-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: results/defect_mask_texture/bus_coppler_gray-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: 9e53233830633a49702308bee20b8d84.dir
+      size: 627228
+      nfiles: 60
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@bus_coppler_green-testing-defect-rail-l:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=bus_coppler_green-testing/defect-rail-l --product-name=bus_coppler_green"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/bus_coppler_green-testing/defect-rail-l
+      hash: md5
+      md5: ce98049f715ca55498307269b437356f.dir
+      size: 1616136554
+      nfiles: 744
+    - path: ./data//products/bus_coppler_green
+      hash: md5
+      md5: d11ed6ea5216bd9b99302659474c0e5c.dir
+      size: 25674689
+      nfiles: 23
+    - path: results/defect_mask/bus_coppler_green-testing/defect-rail-l
+      hash: md5
+      md5: d6ed110090dcf42d8969df0f5aa764a6.dir
+      size: 1818233
+      nfiles: 60
+    - path: results/defect_mask_texture/bus_coppler_green-testing/defect-rail-l
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@bus_coppler_green-testing-defect-exchange-rails-l-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=bus_coppler_green-testing/defect-exchange-rails-l-cr --product-name=bus_coppler_green"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/bus_coppler_green-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: b0e65dd06b9e93a45e1ed8d61d0d079f.dir
+      size: 1656109316
+      nfiles: 754
+    - path: ./data//products/bus_coppler_green
+      hash: md5
+      md5: d11ed6ea5216bd9b99302659474c0e5c.dir
+      size: 25674689
+      nfiles: 23
+    - path: results/defect_mask/bus_coppler_green-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: 448dd9241fd069e7528f92856a7c6589.dir
+      size: 1983721
+      nfiles: 60
+    - path: results/defect_mask_texture/bus_coppler_green-testing/defect-exchange-rails-l-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@bus_coppler_green-testing-defect-rail-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=bus_coppler_green-testing/defect-rail-cr --product-name=bus_coppler_green"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/bus_coppler_green-testing/defect-rail-cr
+      hash: md5
+      md5: 8f1b0416fb8c61654bf06e2951eecd28.dir
+      size: 1619208409
+      nfiles: 740
+    - path: ./data//products/bus_coppler_green
+      hash: md5
+      md5: d11ed6ea5216bd9b99302659474c0e5c.dir
+      size: 25674689
+      nfiles: 23
+    - path: results/defect_mask/bus_coppler_green-testing/defect-rail-cr
+      hash: md5
+      md5: 26e7c2b36a5153071f43dff97506f150.dir
+      size: 1817166
+      nfiles: 60
+    - path: results/defect_mask_texture/bus_coppler_green-testing/defect-rail-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@switch_8_port-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=switch_8_port-testing/defect-mount-clipper --product-name=switch_8_port"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/switch_8_port-testing/defect-mount-clipper
+      hash: md5
+      md5: 5c14948ebad76d5fecb6069bfb6610ab.dir
+      size: 7305796208
+      nfiles: 3606
+    - path: ./data//products/switch_8_port
+      hash: md5
+      md5: dda84e39d39c91c7f90de19c492b3901.dir
+      size: 22828406
+      nfiles: 22
+    - path: results/defect_mask/switch_8_port-testing/defect-mount-clipper
+      hash: md5
+      md5: 958d369f469aa2dedb477169a5d3af79.dir
+      size: 7844167
+      nfiles: 288
+    - path: results/defect_mask_texture/switch_8_port-testing/defect-mount-clipper
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@2700642-testing-defect-bottom-left:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=2700642-testing/defect-bottom-left --product-name=2700642"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: 3cb1f1848f22054b1961c7744bfb103c
+      size: 3202
+    - path: ./data//images/2700642-testing/defect-bottom-left
+      hash: md5
+      md5: 2da7beadbb15c5a4d1881a70d9a0a057.dir
+      size: 7521250381
+      nfiles: 3606
+    - path: ./data//products/2700642
+      hash: md5
+      md5: 00bc13d0d50080944961dbf901043bc4.dir
+      size: 27274242
+      nfiles: 14
+    - path: results/defect_mask/2700642-testing/defect-bottom-left
+      hash: md5
+      md5: c15f0c2379c4dafabd65bdf35a34a963.dir
+      size: 26783
+      nfiles: 1
+    - path: results/defect_mask_texture/2700642-testing/defect-bottom-left
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@bus_coppler_green-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=bus_coppler_green-testing/defect-mount-clipper --product-name=bus_coppler_green"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/bus_coppler_green-testing/defect-mount-clipper
+      hash: md5
+      md5: 9a8f6219a1a3cdfc505309210aa67e4d.dir
+      size: 1653656106
+      nfiles: 762
+    - path: ./data//products/bus_coppler_green
+      hash: md5
+      md5: d11ed6ea5216bd9b99302659474c0e5c.dir
+      size: 25674689
+      nfiles: 23
+    - path: results/defect_mask/bus_coppler_green-testing/defect-mount-clipper
+      hash: md5
+      md5: 53e77b0ed9a54fa641b3169b9a5724c8.dir
+      size: 1606457
+      nfiles: 60
+    - path: results/defect_mask_texture/bus_coppler_green-testing/defect-mount-clipper
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@bus_coppler_green-testing-defect-exchange-rails-cl-cr:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=bus_coppler_green-testing/defect-exchange-rails-cl-cr --product-name=bus_coppler_green"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/bus_coppler_green-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: 73c11477fa96a79926e9b5f00ab6f198.dir
+      size: 1661605875
+      nfiles: 752
+    - path: ./data//products/bus_coppler_green
+      hash: md5
+      md5: d11ed6ea5216bd9b99302659474c0e5c.dir
+      size: 25674689
+      nfiles: 23
+    - path: results/defect_mask/bus_coppler_green-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: results/defect_mask_texture/bus_coppler_green-testing/defect-exchange-rails-cl-cr
+      hash: md5
+      md5: 5321adc257194666c94861fb5b4997a6.dir
+      size: 620176
+      nfiles: 60
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@switch_8_port-testing-defect-connector-side:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=switch_8_port-testing/defect-connector-side --product-name=switch_8_port"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/switch_8_port-testing/defect-connector-side
+      hash: md5
+      md5: f979925ffb60fbb2dd263f792a731f50.dir
+      size: 7307273603
+      nfiles: 3604
+    - path: ./data//products/switch_8_port
+      hash: md5
+      md5: dda84e39d39c91c7f90de19c492b3901.dir
+      size: 22828406
+      nfiles: 22
+    - path: results/defect_mask/switch_8_port-testing/defect-connector-side
+      hash: md5
+      md5: 82dbc60af711bd47e435b7f0ccc5da7d.dir
+      size: 7879096
+      nfiles: 288
+    - path: results/defect_mask_texture/switch_8_port-testing/defect-connector-side
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@switch_8_port-testing-defect-exchange-rj-45:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=switch_8_port-testing/defect-exchange-rj-45 --product-name=switch_8_port"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/switch_8_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: 1cd4b8feaea6ee4806c13d1d2517b246.dir
+      size: 7313056825
+      nfiles: 3606
+    - path: ./data//products/switch_8_port
+      hash: md5
+      md5: dda84e39d39c91c7f90de19c492b3901.dir
+      size: 22828406
+      nfiles: 22
+    - path: results/defect_mask/switch_8_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: results/defect_mask_texture/switch_8_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: d09f87450c161d58fe198d958ba9e295.dir
+      size: 2710356
+      nfiles: 288
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@switch_8_port-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=switch_8_port-training/no-defect --product-name=switch_8_port"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/switch_8_port-training/no-defect
+      hash: md5
+      md5: 47b4bc4970e4a3505b2f38300f4e64cc.dir
+      size: 7309697014
+      nfiles: 3612
+    - path: ./data//products/switch_8_port
+      hash: md5
+      md5: dda84e39d39c91c7f90de19c492b3901.dir
+      size: 22828406
+      nfiles: 22
+    - path: results/defect_mask/switch_8_port-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: results/defect_mask_texture/switch_8_port-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  target-pose@switch_16_port-testing-defect-connector-side:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=switch_16_port-testing/defect-connector-side --product-name=switch_16_port"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//commonfile_large.txt
+      hash: md5
+      md5: ddc091900633560b59949333b947c2a8
+      size: 536870912
+    - path: ./data//images/switch_16_port-testing/defect-connector-side
+      hash: md5
+      md5: 7dcf4e1048071f39c913cfc3d54747e5.dir
+      size: 7331627571
+      nfiles: 3494
+    - path: ./data//products/switch_16_port
+      hash: md5
+      md5: 66438c44527df92ec4bb18c8c300b904.dir
+      size: 30095181
+      nfiles: 15
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 30ba65d4d161ff99e0890be9d2f26859
+      size: 23746
+    outs:
+    - path: ./results//scene/switch_16_port-testing/defect-connector-side
+      hash: md5
+      md5: 93f0fce0e4c4292b15d09d00e5fb7d63.dir
+      size: 1691253337
+      nfiles: 578
+  target-pose@switch_16_port-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=switch_16_port-testing/defect-mount-clipper --product-name=switch_16_port"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//commonfile_large.txt
+      hash: md5
+      md5: ddc091900633560b59949333b947c2a8
+      size: 536870912
+    - path: ./data//images/switch_16_port-testing/defect-mount-clipper
+      hash: md5
+      md5: f86ec90005652dd5143f5ed0997b2987.dir
+      size: 7323959066
+      nfiles: 3496
+    - path: ./data//products/switch_16_port
+      hash: md5
+      md5: 66438c44527df92ec4bb18c8c300b904.dir
+      size: 30095181
+      nfiles: 15
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 30ba65d4d161ff99e0890be9d2f26859
+      size: 23746
+    outs:
+    - path: ./results//scene/switch_16_port-testing/defect-mount-clipper
+      hash: md5
+      md5: d1d0952334866a657f2c7d1ab77f296a.dir
+      size: 1691282943
+      nfiles: 578
+  target-pose@switch_16_port-testing-defect-exchange-rj-45:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.target_pose --datasets-root=./data/
+      --dataset-name=switch_16_port-testing/defect-exchange-rj-45 --product-name=switch_16_port"
+    deps:
+    - path: ./data//aruco_scene_parameters.csv
+      hash: md5
+      md5: b7feb4261cba6192eb18c604af6dc1f5
+      size: 1688
+    - path: ./data//commonfile_large.txt
+      hash: md5
+      md5: ddc091900633560b59949333b947c2a8
+      size: 536870912
+    - path: ./data//images/switch_16_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: 10461f2b79b1b3645f408a1af0a0dad4.dir
+      size: 7333019766
+      nfiles: 3496
+    - path: ./data//products/switch_16_port
+      hash: md5
+      md5: 66438c44527df92ec4bb18c8c300b904.dir
+      size: 30095181
+      nfiles: 15
+    - path: ./data//template_scene2.fbx
+      hash: md5
+      md5: 45ecb5a6ed5fb381747be7c84becc1e3
+      size: 529100
+    - path: src/pre_processing/stage/target_pose.py
+      hash: md5
+      md5: 30ba65d4d161ff99e0890be9d2f26859
+      size: 23746
+    outs:
+    - path: ./results//scene/switch_16_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: 8222e33d400a331966db2ae273a76b7e.dir
+      size: 1691290019
+      nfiles: 578
+  render-synthetic@switch_16_port-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=switch_16_port-testing/defect-mount-clipper --product_name=switch_16_port
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/switch_16_port/compiled_scene_0.blend
+      hash: md5
+      md5: dd522966731f692cd92e4e36d0710278
+      size: 5213324
+    - path: ./results//scene/switch_16_port-testing/defect-mount-clipper/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 1154f15b5ed213166f574a98fcfe3ca5
+      size: 89703
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/switch_16_port-testing/defect-mount-clipper
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@switch_16_port-testing-defect-connector-side:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=switch_16_port-testing/defect-connector-side --product_name=switch_16_port
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/switch_16_port/compiled_scene_0.blend
+      hash: md5
+      md5: dd522966731f692cd92e4e36d0710278
+      size: 5213324
+    - path: ./results//scene/switch_16_port-testing/defect-connector-side/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 0f9d708f53f8be5e3fd090288be04227
+      size: 89680
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/switch_16_port-testing/defect-connector-side
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  render-synthetic@switch_16_port-testing-defect-exchange-rj-45:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=./data/
+      --dataset_name=switch_16_port-testing/defect-exchange-rj-45 --product_name=switch_16_port
+      --results_root=./results/ --type=defect"
+    deps:
+    - path: ./data//products/switch_16_port/compiled_scene_0.blend
+      hash: md5
+      md5: dd522966731f692cd92e4e36d0710278
+      size: 5213324
+    - path: ./results//scene/switch_16_port-testing/defect-exchange-rj-45/transforms_synthetic_rendering.json
+      hash: md5
+      md5: 6d7f455b79d2177374af0d973d5795fc
+      size: 89676
+    - path: src/pre_processing/stage/render_synthetic.py
+      hash: md5
+      md5: 0b7556b4f3b965fae4c170a6d90627e8
+      size: 7356
+    outs:
+    - path: ./results//synthetic_render/switch_16_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@switch_16_port-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=switch_16_port-training/no-defect --results_root=./results/ --product-name=switch_16_port
+      --type=no-defect --subtype=no-defect --location="
+    deps:
+    - path: ./results//scene/switch_16_port-training/no-defect
+      hash: md5
+      md5: a42931acbaec0b2947a7d60ffbface7b.dir
+      size: 1691145267
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/switch_16_port-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@switch_16_port-testing-defect-connector-side:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=switch_16_port-testing/defect-connector-side --results_root=./results/
+      --product-name=switch_16_port --type=defect --subtype=missing --location=connector_side"
+    deps:
+    - path: ./results//scene/switch_16_port-testing/defect-connector-side
+      hash: md5
+      md5: 93f0fce0e4c4292b15d09d00e5fb7d63.dir
+      size: 1691253337
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/switch_16_port-testing/defect-connector-side
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask-texture@switch_16_port-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=switch_16_port-testing/defect-mount-clipper --results_root=./results/
+      --product-name=switch_16_port --type=defect --subtype=missing --location=mount_clipper"
+    deps:
+    - path: ./results//scene/switch_16_port-testing/defect-mount-clipper
+      hash: md5
+      md5: d1d0952334866a657f2c7d1ab77f296a.dir
+      size: 1691282943
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/switch_16_port-testing/defect-mount-clipper
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask@switch_16_port-testing-defect-exchange-rj-45:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=switch_16_port-testing/defect-exchange-rj-45 --results_root=./results/
+      --product-name=switch_16_port --type=defect --subtype=texture --location=exchange-rj-45"
+    deps:
+    - path: ./results//scene/switch_16_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: 8222e33d400a331966db2ae273a76b7e.dir
+      size: 1691290019
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/switch_16_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  defect-mask@switch_16_port-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=switch_16_port-testing/defect-mount-clipper --results_root=./results/
+      --product-name=switch_16_port --type=defect --subtype=missing --location=mount_clipper"
+    deps:
+    - path: ./results//scene/switch_16_port-testing/defect-mount-clipper
+      hash: md5
+      md5: d1d0952334866a657f2c7d1ab77f296a.dir
+      size: 1691282943
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/switch_16_port-testing/defect-mount-clipper
+      hash: md5
+      md5: cec14085aa43cc7209053a8fff3ccf8b.dir
+      size: 8017449
+      nfiles: 288
+  defect-mask@switch_16_port-testing-defect-connector-side:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=./data/
+      --dataset_name=switch_16_port-testing/defect-connector-side --results_root=./results/
+      --product-name=switch_16_port --type=defect --subtype=missing --location=connector_side"
+    deps:
+    - path: ./results//scene/switch_16_port-testing/defect-connector-side
+      hash: md5
+      md5: 93f0fce0e4c4292b15d09d00e5fb7d63.dir
+      size: 1691253337
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks.py
+      hash: md5
+      md5: 946381a755a1faeb7cf4b9a67664a147
+      size: 13217
+    outs:
+    - path: ./results//defect_mask/switch_16_port-testing/defect-connector-side
+      hash: md5
+      md5: cd1b0e860f1a8205d2e511585ef42071.dir
+      size: 7888115
+      nfiles: 288
+  format_dataset_regular@switch_16_port-testing-defect-mount-clipper:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=switch_16_port-testing/defect-mount-clipper --product-name=switch_16_port"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/switch_16_port-testing/defect-mount-clipper
+      hash: md5
+      md5: f86ec90005652dd5143f5ed0997b2987.dir
+      size: 7323959066
+      nfiles: 3496
+    - path: ./data//products/switch_16_port
+      hash: md5
+      md5: 66438c44527df92ec4bb18c8c300b904.dir
+      size: 30095181
+      nfiles: 15
+    - path: results/defect_mask/switch_16_port-testing/defect-mount-clipper
+      hash: md5
+      md5: cec14085aa43cc7209053a8fff3ccf8b.dir
+      size: 8017449
+      nfiles: 288
+    - path: results/defect_mask_texture/switch_16_port-testing/defect-mount-clipper
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@switch_16_port-testing-defect-connector-side:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=switch_16_port-testing/defect-connector-side --product-name=switch_16_port"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/switch_16_port-testing/defect-connector-side
+      hash: md5
+      md5: 7dcf4e1048071f39c913cfc3d54747e5.dir
+      size: 7331627571
+      nfiles: 3494
+    - path: ./data//products/switch_16_port
+      hash: md5
+      md5: 66438c44527df92ec4bb18c8c300b904.dir
+      size: 30095181
+      nfiles: 15
+    - path: results/defect_mask/switch_16_port-testing/defect-connector-side
+      hash: md5
+      md5: cd1b0e860f1a8205d2e511585ef42071.dir
+      size: 7888115
+      nfiles: 288
+    - path: results/defect_mask_texture/switch_16_port-testing/defect-connector-side
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@switch_16_port-training-no-defect:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=switch_16_port-training/no-defect --product-name=switch_16_port"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/switch_16_port-training/no-defect
+      hash: md5
+      md5: ebf9ded955e35dd396f98939e327d6f3.dir
+      size: 7410730176
+      nfiles: 3488
+    - path: ./data//products/switch_16_port
+      hash: md5
+      md5: 66438c44527df92ec4bb18c8c300b904.dir
+      size: 30095181
+      nfiles: 15
+    - path: results/defect_mask/switch_16_port-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: results/defect_mask_texture/switch_16_port-training/no-defect
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  format_dataset_regular@switch_16_port-testing-defect-exchange-rj-45:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=./data/
+      --dataset-name=switch_16_port-testing/defect-exchange-rj-45 --product-name=switch_16_port"
+    deps:
+    - path: ./data//datasets.yaml
+      hash: md5
+      md5: b7b7e7dd75f9ba50c49b140d5e85e7f2
+      size: 4137
+    - path: ./data//images/switch_16_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: 10461f2b79b1b3645f408a1af0a0dad4.dir
+      size: 7333019766
+      nfiles: 3496
+    - path: ./data//products/switch_16_port
+      hash: md5
+      md5: 66438c44527df92ec4bb18c8c300b904.dir
+      size: 30095181
+      nfiles: 15
+    - path: results/defect_mask/switch_16_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: results/defect_mask_texture/switch_16_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: e7593a912f206bf56051009a81632639.dir
+      size: 2834147
+      nfiles: 288
+    - path: src/pre_processing/stage/format_dataset_regular.py
+      hash: md5
+      md5: 5cb9d1462d5910c4eaf786b54bf99e16
+      size: 18550
+  defect-mask-texture@switch_16_port-testing-defect-exchange-rj-45:
+    cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate
+      base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=./data/
+      --dataset_name=switch_16_port-testing/defect-exchange-rj-45 --results_root=./results/
+      --product-name=switch_16_port --type=defect --subtype=texture --location=exchange-rj-45"
+    deps:
+    - path: ./results//scene/switch_16_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: 1e9ff4de6ab5ff3f9a5840fff7940e0d.dir
+      size: 1691290019
+      nfiles: 578
+    - path: src/pre_processing/stage/defect_masks_texture.py
+      hash: md5
+      md5: 44dcf3461a1672a9ede024351c2aad1e
+      size: 9543
+    outs:
+    - path: ./results//defect_mask_texture/switch_16_port-testing/defect-exchange-rj-45
+      hash: md5
+      md5: e7593a912f206bf56051009a81632639.dir
+      size: 2834147
+      nfiles: 288

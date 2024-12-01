@@ -1,0 +1,10 @@
+__pycache__/
+
+data/
+mvtec_ad_data
+.devcontainer/blender-3.5.1-linux-x64.tar.xz
+eyek_addon
+eyek_cache
+.ssh/id_rsa_dvc_remote
+.devcontainer/Mambaforge-Linux-x86_64.sh
+results/

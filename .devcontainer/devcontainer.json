@@ -1,0 +1,40 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "dev-container",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	// "image": "mcr.microsoft.com/devcontainers/base:jammy"
+	"build": {
+        // Path is relative to the devcontainer.json file.
+        "dockerfile": "Dockerfile"
+    },
+
+	// An array of Docker CLI arguments that should be used when running the container
+	"runArgs": [
+		// Use available GPUs
+		"--gpus","all",
+		// Increase shm size - value should be more than 30% available RAM
+		"--shm-size","16gb"
+	],
+	"containerEnv": {
+		"LD_LIBRARY_PATH": "/opt/conda/lib/:/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+		"LD_PRELOAD": "/usr/lib/x86_64-linux-gnu/libwayland.so.0.3.0"
+	},
+
+
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	//"forwardPorts": [3000],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh",
+
+	// Configure tool-specific properties.
+	// "customizations": {}
+
+	// Connect as root. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "mambauser"
+}

@@ -1,0 +1,58 @@
+params:
+  - params.yaml
+stages:
+  defect-mask:
+    foreach: ${dataset}
+    do:
+      deps:
+        - src/pre_processing/stage/defect_masks.py
+        - ${results_root_dir}/scene/${item.name}
+      outs:
+        - ${results_root_dir}/defect_mask/${item.name}
+      cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate base && blenderproc run src/pre_processing/stage/defect_masks.py --datasets_root=${data_root_dir} --dataset_name=${item.name} --results_root=./results/ --product-name=${item.product_name} --type=${item.type} --subtype=${item.subtype} --location=${item.loc}"
+  defect-mask-texture:
+    foreach: ${dataset}
+    do:
+      deps:
+        - src/pre_processing/stage/defect_masks_texture.py
+        - ${results_root_dir}/scene/${item.name}
+      outs:
+        - ${results_root_dir}/defect_mask_texture/${item.name}
+      cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate base && blenderproc run src/pre_processing/stage/defect_masks_texture.py --datasets_root=${data_root_dir} --dataset_name=${item.name} --results_root=./results/ --product-name=${item.product_name} --type=${item.type} --subtype=${item.subtype} --location=${item.loc}"
+  target-pose:
+    foreach: ${dataset}
+    do:
+      deps:
+        - ${data_root_dir}/images/${item.name}
+        - ${data_root_dir}/products/${item.product_name}
+        - ${data_root_dir}/template_scene2.fbx
+        - ${data_root_dir}/aruco_scene_parameters.csv
+        - src/pre_processing/stage/target_pose.py
+      outs:
+        - ${results_root_dir}/scene/${item.name}
+      cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate base && python -m src.pre_processing.stage.target_pose --datasets-root=${data_root_dir} --dataset-name=${item.name} --product-name=${item.product_name}"
+  render-synthetic:
+    foreach: ${dataset}
+    do:
+      deps:
+        - src/pre_processing/stage/render_synthetic.py
+        - ${results_root_dir}/scene/${item.name}/transforms_synthetic_rendering.json
+        - ${data_root_dir}/products/${item.product_name}/compiled_scene_0.blend
+      outs:
+        - ${results_root_dir}/synthetic_render/${item.name}
+      cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate base && blenderproc run src/pre_processing/stage/render_synthetic.py --datasets_root=${data_root_dir} --dataset_name=${item.name} --product_name=${item.product_name} --results_root=./results/ --type=${item.type}"
+  format_dataset_regular:
+    foreach: ${dataset}
+    do:
+      deps:
+        - ${data_root_dir}/images/${item.name}
+        - ${data_root_dir}/products/${item.product_name}
+        - results/defect_mask/${item.name}
+        - results/defect_mask_texture/${item.name}
+        # - ${results_root_dir}/roi_mask
+        - src/pre_processing/stage/format_dataset_regular.py
+        - ${data_root_dir}/datasets.yaml
+      # outs: # writing in the same directory for multiple stages. Need to remove outs for now
+        # - results/own/${item.product_name}
+        # - results/own_masked
+      cmd: bash -c "eval $(micromamba shell hook --shell=bash) && micromamba activate base && python -m src.pre_processing.stage.format_dataset_regular --datasets-root=${data_root_dir} --dataset-name=${item.name} --product-name=${item.product_name}"
