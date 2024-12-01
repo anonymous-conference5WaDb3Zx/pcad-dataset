@@ -1,0 +1,9 @@
+name: base
+channels:
+  - pkgs/main
+  - conda-forge
+dependencies:
+  - python=3.10.*
+  - pip
+  - pip:
+      - future-fstrings
