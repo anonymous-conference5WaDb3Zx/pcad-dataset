@@ -1,8 +1,3 @@
-# Instructions for reviews
-
-## Code
-* https://github.com/anonymous-conference5WaDb3Zx/pcad-dataset: GitHub Repository for generation of dataset
-
 ## Data
 All data is available in cloud storage with the following link: https://drive.google.com/drive/folders/13ryvR4XNhJHqDAsKGM_QEkrHOTWrj_7f?usp=sharing
 
@@ -19,10 +14,6 @@ All data is available in cloud storage with the following link: https://drive.go
 For the code to run, you need to start a docker container. The authors use WSL for that, but any popular native linux distribution should also work. For details about the installation, visit https://docs.docker.com/desktop/wsl/
 The docker container has blender installed which makes use of the dedicated nvidia gpu, if available. The code runs also with cpu only but probably much slower. Make sure that your nvidia gpu is visible to the docker daemon.
 The pipeline will generate intermediate files that take up approxemately 50GB. The final dataset itself takes up space for 
-
-### Installation of code
-The code can be pulled using regular git pull command:
-`git clone https://github.com/anonymous-conference5WaDb3Zx/pcad-dataset`
 
 ### Installation of data
 pcad-dataset-data contains all data needed to generate the final dataset. Please make sure that pcad-dataset-raw is inflated into the project root as `data/`.
